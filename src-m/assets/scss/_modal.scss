@@ -1,0 +1,407 @@
+.vm--modal { 
+  @include borderRadius(0);
+
+  z-index: 999;
+}
+.modal {
+    @include size(100%, 100%);
+    @include borderRadius(0.3rem);
+
+    position: relative;
+    display: block;
+
+    .modal_title {
+      @include flex-align(flex-start,center);
+      @include size(100%,auto);
+  
+      font-size: 2rem;
+      color: #000;
+      font-weight:700;
+      padding:3rem 2rem 0;
+      margin:0;
+      //border-bottom:0.1rem solid #a6a6a6;
+    }
+    .modal_title_t02 {
+      justify-content: flex-start;
+      font-size: 1.4rem;
+      color: #fff;
+      margin:0;
+      padding:1rem 2rem;
+      background: #42883c;
+    }
+    .btn_modal_close,.btn_modal_close_t02 {
+      @include position(absolute,1rem,1rem,auto,auto,99);
+  
+      > button{
+        @include size(2rem, 2rem);
+  
+        position: relative;
+        border:0;
+        background: transparent;
+  
+        &::before,
+        &::after{
+          @include position(absolute, -.1rem,auto,auto,.8rem,9);
+          @include size(.1rem,1.6rem);
+    
+          display: block;
+          content: "";
+          background-color: #000;
+          transform:rotate(45deg);
+          -webkit-transform:rotate(45deg);
+          
+        }
+        &::after{
+          transform:rotate(-45deg);
+          -webkit-transform:rotate(-45deg);
+        }
+      }
+    }
+    .btn_modal_close_t02 {
+      top: 1rem;
+
+      > button{
+  
+        &::before,
+          &::after{
+            background-color: #fff;
+        }
+      }    
+    }
+    .modal_btn_contents{
+    @include flex-align(center,center);
+    @include size(100%, auto);
+
+    flex-flow: row nowrap;
+    //gap:0.5rem;
+    flex-shrink: 1;
+    margin-top: 0;
+
+    &.modal_btn_contents_02{
+      gap:0.5rem;
+    }
+
+        > button {
+        @include size(100%, 4.5rem);
+        //@include borderRadius(0.2rem);
+
+        font-size: 1.3rem;
+        color:#666;
+        background: #fff;
+        border:0;
+        border-top:.1rem solid #ededed
+        }
+        .btn_primary {
+            color:#fff;
+            border:0;
+            background: #{$primary};
+        }
+        .btn_cancle {
+          color:#fff;
+            background: #999;
+            border:.1rem solid #999
+        }
+        .btn_next_change{
+          color:#fff;
+          background: #999;
+          border:0;
+        }
+        .btn_ok {
+            color:#fff;
+            font-weight: 700;
+            background: #0f662d;
+            border:.1rem solid #0f662d
+        }
+    }
+    .new_password + .modal_btn_contents {gap:.5rem}
+    .sub_txt{
+        display: block;
+        width:100%;
+        font-size: 13px;
+        color: #f39703;
+        font-weight: 700;
+        margin-top: 10px;
+    }
+    .modal_content{
+        @include size(100%,auto);
+        @include flex-align(flex-start,center);
+        padding:1.5rem 1.5rem 3rem;
+
+        flex-direction: column;
+
+        .modal_form {
+            @include flex-align(flex-start,flex-start);
+            @include size(100%, auto);
+    
+            flex-flow: column wrap;
+            padding:0 20px;
+    
+            > small {
+            @include size(100%, auto);
+    
+            text-align: center;
+            letter-spacing: -1px;
+            line-height: 1.4;
+            font-size: 14px;
+            color:#999;
+            margin:45px 0 10px;
+            }
+            .form_box {
+            input {font-size: 16px}
+            }
+            .modal_form_title {
+            @include size(100%, auto);
+    
+            text-align: center;
+            letter-spacing: -1px;
+            line-height: 1.4;
+            font-size: 28px;
+            color:#000;
+            font-weight: 700;
+            margin-bottom: 40px;
+    
+            }
+            .input_alert {
+            font-size: 14px;;
+            color:#{$alert};
+            padding:0 14px;
+            margin: -5px 0 20px;
+        }
+        }
+
+        .txt_onboard {
+          width:100%;
+          text-align: left;
+          font-size: 1.4rem;
+          color:#888
+        }
+    }
+}
+
+//페이지타입 모달
+.page_modal {
+  @include borderRadius(0);
+  @include size(100%,100%);
+}
+
+  //임시비밀번호
+.new_password {
+    @include flex-align(flex-start, center);
+    @include size(100%, auto);
+
+    flex-flow:column wrap;
+    padding-bottom:3rem;
+
+    .new_password_title {
+      width:100%;
+        font-size: 1.8rem;
+        color:#179a3e;
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: -.1rem;
+        text-align: left;
+        margin-top:1rem;
+        padding:0 2rem 0 0 ;
+        word-break: keep-all;
+    }
+    .new_password_subtxt{
+        width:100%;
+        font-size: 1.5rem;
+        color:#333;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: left;
+        margin-top:1rem;
+    }
+
+    > .idpw_form {
+        padding:0;
+
+        .idpw_form_title{
+            display: flex;
+            font-size: 1.3rem;
+            color:#000;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+        .idpw_form_subtxt{
+            display: flex;
+            font-size: 1rem;
+            color:#999;
+            margin-bottom:0.5rem;
+        }
+        > .form_box {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+//하단 모달
+.bottom_modal {
+  @include position(fixed,auto,auto,auto,0,99);
+  @include size(100%, auto);
+  @include transition(all,0.3s);
+
+  //visibility: hidden;
+  //opacity: 0;
+  
+  background: #fff;
+  box-shadow: .5rem 0 .5rem rgba(0,0,0,0.3);
+
+
+  &.pd_open {
+    bottom:0 !important;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .header {
+    height:3rem;
+    border:0;
+
+    .btn_header {height:3rem}
+  }
+  .bottom_modal_contents {
+    max-height: 75vh;
+    padding:0.8rem 1.5rem;
+    overflow-y: auto;
+
+    //테이블  스타일    
+    .table {
+      .item_info_title {
+        @include flex-align(flex-start, flex-start);
+  
+        flex-flow: column wrap;
+        font-size: 1rem;
+        text-align: left;
+        color:#000;
+        padding:0 1rem;
+      }
+      .price_txt {
+        strong,
+        i,
+        small {color:#000}
+      }
+      table + table{margin-top:0.8rem}
+    }
+    
+  }
+  
+}
+
+
+//계산기
+
+.calculator_modal {
+  @include size(100%, 33rem);
+
+  .calculator_modal_contents {
+    @include size(100%, auto);
+  
+    padding:0;
+  
+    .btn_close {
+      @include position(absolute,auto,2rem,-36rem,auto,9);
+      //@include size(100%, calc(100% - 33rem));
+  
+      background: rgba(0,0,0,0.3);
+      display: block;
+    }
+  } 
+
+  // &::before{
+  //   @include position(fixed,0,auto,auto,0,90);
+  //   @include size(100%, 100%);
+
+  //   display: block;
+  //   content: "";
+  //   background-color: rgba(0,0,0,0.3);
+  // }
+  .calculator_section {
+    @include size(100%, auto);
+    @include flex-align(flex-start,flex-start);
+
+    flex-flow:column wrap;
+    
+    .calculator_price {
+      @include flex-align(flex-end,center);
+      @include size(100%, 5rem);
+
+      color:#000;
+      font-size: 2.7rem;
+      font-weight: 700;
+      text-align: right;
+      padding: 0 1.5rem;
+      background: #fff;
+    }
+    .calculator_box {
+      @include size(100%, auto);
+      @include flex-align(flex-start,flex-start);
+
+      flex-flow:row nowrap;
+
+      background: #44523f;
+
+      .calculator_num{
+        @include flex-align(flex-start,flex-start);
+        @include size(75%, auto);
+
+        flex-flow: row wrap;
+
+        > button {
+          @include flex-align(center,center);
+          @include size(calc(100% / 3),7rem);
+          @include borderRadius(0);
+
+          flex-shrink: 0;
+          font-size:2.5rem;
+          color:#fff;
+          background: transparent;
+          border:0;
+        }
+      }
+      .calculator_value{
+        @include flex-align(flex-start,flex-start);
+        @include size(25%, auto);
+
+        flex-flow: column wrap;
+
+        > button {
+          @include flex-align(center,center);
+          @include size(100%,7rem);
+          @include borderRadius(0);
+
+          flex-shrink: 0;
+          font-size:1.7rem;
+          color:#fff;
+          background: transparent;
+          border:0;
+
+          > img {width:2rem}
+        }
+        .btn_ca_enter {
+          height: 14rem;
+          font-size: 1.7rem;
+          background: #2ba200;
+        }
+      }
+    }
+    
+  }
+}
+
+//결재문서번호입력
+.draftd {
+  @include size(100%, auto);
+  @include flex-align(flex-start, flex-start);
+
+  flex-direction: column;
+  margin: 1rem 0 3rem;
+
+  > p {
+    font-size: 1.2rem;
+    color:#333;
+    margin-bottom: 0.5rem;
+  }
+}

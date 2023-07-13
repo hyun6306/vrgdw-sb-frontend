@@ -1,0 +1,613 @@
+<template>
+  <div class="wrap">
+    <div class="header">
+      <div class="header_title">
+        <h1 class="logo in_txt">샘플상세</h1>
+      </div>
+      <div class="header_left">
+        <button class="btn_header in_img"><img src="@m/assets/img/icon_back.png" /></button>
+      </div>
+      <div class="header_right"></div>
+    </div>
+    <!-- //상단 헤더 -->
+
+    <!-- 컨텐츠 바디 -->
+    <div class="container">
+      <div class="quote_detail_contents">
+        <button class="btn_folding" @click="quoteOpen = !quoteOpen" :class="{ quote_open: quoteOpen }">
+          <p class="quote_title">
+            <strong>샘플 기본 정보</strong>
+            <span>PO No : <i>00000005</i></span>
+          </p>
+          <button class="btn_request">의뢰</button>
+          <i class="in_img"><img src="@m/assets/img/icon_up.png" /></i>
+        </button>
+        <!-- 폴딩영역 기본정보 배송지 정보 -->
+        <section class="quote_detail_section" :class="{ quote_open: quoteOpen }">
+          <div class="quote_detail_box">
+            <div class="qd_box_head">
+              <div class="qd_box_head_line">
+                <p class="">
+                  <span>Requested Quantity</span>
+                  <strong>10,000</strong>
+                </p>
+                <button>
+                  <span>Customer</span>
+                  <img src="@m/assets/img/icon_customer.png" />
+                </button>
+              </div>
+            </div>
+            <div class="table">
+              <table>
+                <colgroup>
+                  <col style="width: calc(25%)" />
+                  <col style="width: calc(25%)" />
+                  <col style="width: calc(25%)" />
+                  <col style="width: calc(25%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>부킹수량</th>
+                    <th>배송완료</th>
+                    <th>배송 중</th>
+                    <th>취소 합계</th>
+                  </tr>
+                  <tr>
+                    <td class="t-r fblue">200</td>
+                    <td class="t-r fg">150</td>
+                    <td class="t-r fg">40</td>
+                    <td class="t-r fr">10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- 리스트영역 -->
+      <div class="quote_detail_list_contents">
+        <!-- 리스트 총 개수 및 요청일 -->
+        <div class="qdl_head">
+          <label class="chechbox_basic">
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+            <strong>12</strong> Item
+          </label>
+          <span class="quote_request_date"> 견적 요청일 </span>
+          <strong>01-09-2022</strong>
+        </div>
+        <!-- //리스트 총 개수 및 요청일 -->
+        <!-- 리스트 반복 -->
+        <div class="qdl_section">
+          <div class="quote_list_box">
+            <div class="check_product">
+              <label class="chechbox_solo">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+              </label>
+              <button @click="productInfoOpen = !productInfoOpen" class="product_txt">MDF Regular 25T E1 35 (1220*2440)</button>
+              <button class="btn_paper in_img"><img src="@m/assets/img/icon_paper.png" /></button>
+              <button class="btn_request">확정</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">배송 희망일</th>
+                    <td class="t-r">11-07-2022</td>
+                    <th class="t-l">생산 예정일</th>
+                    <td class="t-r">22-07-2022</td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">아이템 번호 No</th>
+                    <td class="t-r">10</td>
+                    <th class="t-l">Requested Vol</th>
+                    <td class="t-r">10,000/<i class="fr">100</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table">
+              <table>
+                <colgroup>
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th colspan="3">STANDARD</th>
+                  </tr>
+
+                  <tr>
+                    <th>가로</th>
+                    <th>세로</th>
+                    <th>두께</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>0.22</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">견적 조정가</th>
+                    <td colspan="3">
+                      <span class="form_input essential">
+                        <input type="number" pattern="[0-9]*" class="d_input" />
+                        <button class="in_img"><img src="@m/assets/img/icon_search.png" /></button>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">운임 조정액</th>
+                    <td colspan="3">
+                      <span class="essential"><input type="number" pattern="[0-9]*" class="d_input" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="qdl_section">
+          <div class="quote_list_box">
+            <div class="check_product">
+              <label class="chechbox_solo">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+              </label>
+              <button @click="productInfoOpen = !productInfoOpen" class="product_txt">MDF Regular 25T E1 35 (1220*2440)</button>
+              <button class="btn_paper in_img"><img src="@m/assets/img/icon_paper.png" /></button>
+              <button class="btn_request">확정</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">배송 희망일</th>
+                    <td class="t-r">11-07-2022</td>
+                    <th class="t-l">생산 예정일</th>
+                    <td class="t-r">22-07-2022</td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">아이템 번호 No</th>
+                    <td class="t-r">10</td>
+                    <th class="t-l">Requested Vol</th>
+                    <td class="t-r">10,000/<i class="fr">100</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table">
+              <table>
+                <colgroup>
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th colspan="3">STANDARD</th>
+                  </tr>
+
+                  <tr>
+                    <th>가로</th>
+                    <th>세로</th>
+                    <th>두께</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>0.22</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">견적 조정가</th>
+                    <td colspan="3">
+                      <span class="form_input essential">
+                        <input type="number" pattern="[0-9]*" class="d_input" />
+                        <button class="in_img"><img src="@m/assets/img/icon_search.png" /></button>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">운임 조정액</th>
+                    <td colspan="3">
+                      <span class="essential"><input type="number" pattern="[0-9]*" class="d_input" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="qdl_section">
+          <div class="quote_list_box">
+            <div class="check_product">
+              <label class="chechbox_solo">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+              </label>
+              <button @click="productInfoOpen = !productInfoOpen" class="product_txt">MDF Regular 25T E1 35 (1220*2440)</button>
+              <button class="btn_paper in_img"><img src="@m/assets/img/icon_paper.png" /></button>
+              <button class="btn_request">진행중</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">배송 희망일</th>
+                    <td class="t-r">11-07-2022</td>
+                    <th class="t-l">생산 예정일</th>
+                    <td class="t-r">22-07-2022</td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">아이템 번호 No</th>
+                    <td class="t-r">10</td>
+                    <th class="t-l">Requested Vol</th>
+                    <td class="t-r">10,000/<i class="fr">100</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table table_row">
+              <table>
+                <colgroup>
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th colspan="3">STANDARD</th>
+                  </tr>
+
+                  <tr>
+                    <th>가로</th>
+                    <th>세로</th>
+                    <th>두께</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>0.22</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn_tabel_end">완료</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">견적 조정가</th>
+                    <td colspan="3">
+                      <span class="form_input">
+                        <input type="number" pattern="[0-9]*" class="d_input" />
+                        <button class="in_img"><img src="@m/assets/img/icon_search.png" /></button>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">운임 조정액</th>
+                    <td colspan="3">
+                      <span class=""><input type="number" pattern="[0-9]*" class="d_input" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="qdl_section">
+          <div class="quote_list_box">
+            <div class="check_product">
+              <button @click="productInfoOpen = !productInfoOpen" class="product_txt">MDF Regular 25T E1 35 (1220*2440)</button>
+              <button class="btn_paper in_img"><img src="@m/assets/img/icon_paper.png" /></button>
+              <button class="btn_request btn_quote_complete">완료</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">배송 희망일</th>
+                    <td class="t-r">11-07-2022</td>
+                    <th class="t-l">생산 예정일</th>
+                    <td class="t-r">22-07-2022</td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">아이템 번호 No</th>
+                    <td class="t-r">10</td>
+                    <th class="t-l">Requested Vol</th>
+                    <td class="t-r">10,000/<i class="fr">100</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table">
+              <table>
+                <colgroup>
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th colspan="3">STANDARD</th>
+                  </tr>
+
+                  <tr>
+                    <th>가로</th>
+                    <th>세로</th>
+                    <th>두께</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>0.22</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">견적 조정가</th>
+                    <td colspan="3">
+                      <span class="form_input">
+                        <input type="number" pattern="[0-9]*" class="d_input" />
+                        <button class="in_img"><img src="@m/assets/img/icon_search.png" /></button>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">운임 조정액</th>
+                    <td colspan="3">
+                      <span class=""><input type="number" pattern="[0-9]*" class="d_input" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="qdl_section">
+          <div class="quote_list_box">
+            <div class="check_product">
+              <button @click="productInfoOpen = !productInfoOpen" class="product_txt">MDF Regular 25T E1 35 (1220*2440)</button>
+              <button class="btn_quote_cancle ml-a">취소</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">배송 희망일</th>
+                    <td class="t-r">11-07-2022</td>
+                    <th class="t-l">생산 예정일</th>
+                    <td class="t-r">22-07-2022</td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">아이템 번호 No</th>
+                    <td class="t-r">10</td>
+                    <th class="t-l">Requested Vol</th>
+                    <td class="t-r">10,000/<i class="fr">100</i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table table_row">
+              <table>
+                <colgroup>
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                  <col style="width: calc(100% / 3)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th colspan="3">STANDARD</th>
+                  </tr>
+
+                  <tr>
+                    <th>가로</th>
+                    <th>세로</th>
+                    <th>두께</th>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>0.22</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="btn_tabel_cancle">완료</button>
+            </div>
+            <div class="table_s02">
+              <table>
+                <colgroup>
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                  <col style="width: calc(30%)" />
+                  <col style="width: calc(20%)" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th class="t-l">견적 조정가</th>
+                    <td colspan="3">
+                      <span class="form_input">
+                        <input type="number" pattern="[0-9]*" class="d_input" />
+                        <button class="in_img"><img src="@m/assets/img/icon_search.png" /></button>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="t-l">운임 조정액</th>
+                    <td colspan="3">
+                      <span class=""><input type="number" pattern="[0-9]*" class="d_input" /></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- //리스트 반복 -->
+      </div>
+      <!-- //리스트영역 -->
+
+      <!-- 하단 버튼 -->
+      <div class="bottom_select_result_contents">
+        <div class="btn_box">
+          <button class="btn_cancle">남은량 취소</button>
+          <button class="btn_tempsave">샘플 부킹 확정</button>
+        </div>
+      </div>
+    </div>
+    <!-- //컨텐츠 바디 -->
+    <ProductInfoModal :productInfoOpen="productInfoOpen" @closeproductInfo="productInfoOpen = !productInfoOpen" />
+  </div>
+</template>
+<script>
+import ProductInfoModal from '@mb/components/modal/quote/ProductInfoModal'; //제품상세
+
+export default {
+  components: {
+    ProductInfoModal,
+  },
+  data() {
+    return {
+      priceSellOpen: false,
+      quoteOpen: false,
+      bookmark: false,
+      productInfoOpen: false,
+      selectOptions: ['KOR', 'ENG', 'VET'],
+      quote_box_height: '',
+    };
+  },
+  computed: {
+    getQuoteBoxWidth: () => {
+      const quoteWidth = document.querySelector('.quote_list_box').offsetWidth;
+      return {
+        quoteWidth,
+      };
+    },
+  },
+  mounted: function () {
+    // this.quoteSection = document.querySelector('.quote_section');
+    // this.quote = document.querySelector('.quote_list_box');
+    // this.btnQuick = document.querySelector('.btn_quick');
+    // this.quote.addEventListener('touchstart', this.touch_start);
+    // this.quote.addEventListener('touchend', this.touch_end);
+    // this.btnQuick.addEventListener('touchend', this.touch_end);
+    // this.getInfoHeight();
+  },
+  methods: {
+    getInfoHeight() {
+      let val = this.$refs.quote_box_height.scrollHeight;
+      // search_box_height 의 높이값 받아온다
+      this.quote_box_height = `${val}px`;
+      this.quoteSection = `${val}px`;
+    },
+    prev() {
+      console.log('이전');
+      this.quote.style.transform = `translateX(${12}rem)`;
+    },
+    next() {
+      console.log('다음');
+      this.quote.style.transform = `translateX(${-12}rem)`;
+    },
+    home() {
+      console.log('홈');
+      this.quote.style.transform = `translateX(${0})`;
+    },
+    touch_start(event) {
+      this.start_x = event.touches[0].pageX;
+      console.log('시작');
+    },
+    touch_end(event) {
+      this.end_x = event.changedTouches[0].pageX;
+      if (this.start_x > this.end_x) this.next();
+      else if (this.start_x < this.end_x) this.prev();
+      //else if ((this.start_x = this.end_x)) this.home();
+      else this.home();
+      console.log('끝');
+    },
+    touch() {
+      this.home();
+      console.log('클릭');
+    },
+    test() {
+      console.log('테스트');
+    },
+  },
+};
+</script>
+
+<style></style>
+ㄴ

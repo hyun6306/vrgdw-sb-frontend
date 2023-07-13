@@ -1,0 +1,14 @@
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/deploy/tmp
+file_exists_behavior: OVERWRITE
+hooks:
+  ApplicationStart:
+    - location: deploy-front.sh
+      timeout: 300
+      runas: deploy
+
+

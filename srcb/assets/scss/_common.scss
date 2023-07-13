@@ -1,0 +1,38 @@
+/* 폰트 px 구하기*/
+@function rem($px, $base: 16px) {
+  @return $px / $base * 1rem;
+}
+
+html { font-size:62.5%; } 
+body {
+  //font-family: 'Noto Sans KR' ; // 한글 선택 일 경우
+  //font-family: 'arial'; // 영어, 베트남 언어 선택 일 경우
+}
+//마우스더블클릭시 선택되는 영역
+::selection {
+  color:#fff;
+  background: #{$primary} ;
+}
+input[type=checkbox], input[type=radio] {
+  accent-color:#{$primary} ;
+};
+
+.lang_eng {
+  font-family: 'arial' !important; // 영어, 베트남 언어 선택 일 경우
+}
+.lang_kor {
+  font-family: 'Noto Sans KR' !important ; // 한글 선택 일 경우
+}
+ul,li {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+//텍스트 정렬
+.t-r{text-align: right !important; }
+.t-l{text-align: left !important;}
+.t-c{text-align: center !important;}
+//글자 색
+.f-g {color: #43852f;}
+.f-red{color:#ff0000 !important;}

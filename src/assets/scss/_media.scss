@@ -1,0 +1,49 @@
+@media (min-width: 1920px) {
+    .rg-table td,
+    .rg-table th,
+    .real_form_input > input,
+    .calendar_render_span{}
+}    
+
+@media (max-width: 1921px) {
+    .rg-table td,
+    .rg-table th,
+    .real_form_input > input,
+    .calendar_render_span{ text-align: center;}
+    
+}
+@media (max-width: 1540px) {
+    #app #container{padding:7px 0 0 0;}
+    .search_content {
+        .search_box{
+            .search_box_filter{
+                .filter_type {
+                    margin-right:19px;
+
+                    &.filter_type_double{width:856px}
+                }
+                
+
+                .btn_search_text,
+                .btn_reset, 
+                .btn_search_text_row {
+                    width:70px;
+                    font-size: 11px;
+                    
+                }
+            }
+        }
+        .f_action05 {
+            .filter_list {
+                .filter_type:nth-child(3){width:auto;}
+            }
+        }
+    }   
+}
+@media (max-width: 1440px) {
+    #app{
+        #container {
+            padding:7px 0 0 0;
+        }
+    }
+}

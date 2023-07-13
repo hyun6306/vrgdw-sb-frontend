@@ -1,0 +1,59 @@
+App.vue
+ 컴포넌트 라우팅 : header, sideHidenBtn, content, footer 
+
+#공통영역
+src\router\index.js >> src\utils\routerUtils.js >> Header, Footer 등의 공통영역 component확인
+- Header: src\components\MainHeader.vue
+- Footer: src\components\MainFooter.vue
+
+#로그인
+src\router\index.js >> 로그인 상태 확인(line 52) >> 로그인페이지 이동(src\views\LoginView.vue)
+
+#메인
+1. src\views\MainView.vue
+- 열린 메뉴탭
+- Content 영역 : line32 
+	lasync load(ine 137)에서 pageObj.routerPath 파악
+	(\src\consts\componentUrl.js) 로 이동하여 /main의 component이름 파악(line 7) 
+	(src\views\main\DashBoard.vue) 의 import 한 components 확인
+
+
+#api 정의(src\api)
+main.js : 메인페이지 api
+
+#consts 정의(src\consts)
+urls.js : 구성 페이지 별로 url 관리를 위함
+
+
+
+
+mapGetters
+-----------------------------------------------
+D-Sales 프론트 요청 업무현왕(가온시스템)
+-----------------------------------------------
+완료사항(운영방영사항) : 
+메일 첨부된 D-Sales(V) 링크 통해 접속한 사용자 ssoCheck 방식 변경 건 (7/4)
+베트남 부가세율 변경에 따른 VAT 컬럼 및 금액 숨김 처리 건 (6/30)
+
+
+진행(예정)사항
+고객마스터 메뉴 대표 고객사 설정 기능 추가
+배치 관리 메뉴 추가 개발 (개발계 배포: 7/4)
+단가조정 요청서 (결재) 연동 개발 (예상 완료일 : 7/4 ~ 7/11)
+-----------------------------------------------
+
+요청예정
+- 고객용 화면 기획 (요청일 : 6/19)
+- 알림 현황파악 및 개선 (요청일 : 6/19)
+- 메뉴 테이블 재설계 (요청일 : ?)
+
+진행(예정)
+- 7월부 베트남 부가세 인하(10% -> 8%) 대응 (요청일 : 6/23)
+
+
+메일 첨부된 D-Sales(V) 링크 통해 접속한 사용자 ssoCheck 방식 변경 건
+고객마스터 메뉴 대표 고객사 설정 기능 추가
+D/N 및 도착관리 그리드 내 붙여넣기 불가하도록 변경 요청
+
+
+https://git-codecommit.ap-northeast-2.amazonaws.com/v1/repos/D-log_client_repo

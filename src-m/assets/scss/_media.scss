@@ -1,0 +1,5 @@
+@media (max-width: 320px) {
+    .sign_box {
+        canvas {@include size(260px, 300px);}
+    }
+}

@@ -1,0 +1,90 @@
+<template>
+  <modal name="SearchModal" width="800" height="500" :adaptive="true" @before-close="close">
+    <div class="modal">
+      <div slot="top-right" class="btn_modal_close_t02">
+        <button @click="$modal.hide('SearchModal')"></button>
+      </div>
+      <p class="modal_title_t02">검색</p>
+      <div class="modal_content dr_content">
+        <div class="search_content">
+          <div class="search_box">
+            <div class="search_box_filter">
+              <div class="filter_list">
+                <label for="" class="filter_type">
+                  <span class="filter_type_title">검색어</span>
+                  <input type="text" id="" style="" class="" placeholder="" />
+                </label>
+                <button class="btn_search_text_row btn_reset">초기화</button>
+                <button class="btn_search_text_row ml-5">검색</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 검색 버튼 클릭시 on 클래스 추가-->
+        <!-- 리프레시 버튼 클릭시 on클래스 삭제-->
+        <!-- 리얼그리드 -->
+        <div class="realgrid_container modal_realgrid02">
+          <div class="real_body">
+            <CustomerOrderGrid style="height: 100%" :gridName="'ProductFavorite'" />
+          </div>
+          <div class="modal_btn_contents_t05">
+            <button class="btn_default">취소</button>
+            <button class="btn_primary">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </modal>
+</template>
+
+<script>
+import find from '@/mixins/style.js'; // js 추가
+import CustomerOrderGrid from '@wb/components/gridComponent/CustomerOrderGrid.vue';
+
+export default {
+  name: 'TabS',
+  components: { CustomerOrderGrid },
+
+  data() {
+    return {
+      currentTab: 0,
+      tabs: ['분류검색', 'Bookmark', 'Previous Orders'],
+      selectValue: '',
+      selectOptions: ['Select option', 'options', 'selected'],
+      openCount: 0,
+      searchOpen: false,
+      search_box_height: '',
+    };
+  },
+  methods: {
+    close() {
+      this.openFirst = 0;
+    },
+    searchProduct() {
+      find.searchProduct();
+    },
+    resetBtn() {
+      find.resetBtn();
+    },
+    getInfoHeight() {
+      if (this.openCount === 0) {
+        let val = this.$refs.filter_content_height.scrollHeight;
+        // filter_content_height 의 높이값 받아온다
+        this.filter_content_height = `calc(${val}px + 1px);`;
+        console.log('getInfoHeight', val);
+        this.openCount++;
+      }
+    },
+    writeInput() {
+      find.writeInput();
+    },
+  },
+  mounted() {
+    this.getInfoHeight();
+  },
+  destroyed() {},
+};
+</script>
+
+<style></style>
