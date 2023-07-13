@@ -357,7 +357,7 @@ export default {
           resp = await mainApi.getVrgdwBooking();
         }
         this.bookingList = resp.data.ds;
-        console.log('부킹현황', this.bookingList);
+        console.log('부킹현황:', this.bookingList);
       } catch (e) {
         if (e && e.err && e.err.data && e.err.data.message) {
           this.$EventBus.$emit('openYesModal', e.err.data.message);
