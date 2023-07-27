@@ -178,7 +178,7 @@
     </div>
 
     <!-- 리얼그리드 -->
-    <div class="realgrid_container realgrid_container15" v-if="userMenuGrp !== 'VRGDW_TRAN' && userMenuGrp !== 'TRANSCUS'">
+    <div class="realgrid_container realgrid_container15 mt-40" v-if="userMenuGrp !== 'VRGDW_TRAN' && userMenuGrp !== 'TRANSCUS'">
       <div class="real_head">
         <div class="real_head_left">
           <span class="real_title">{{ $t('message.bokngStatus') }}</span>
@@ -211,6 +211,35 @@
       </div>
     </div>
     <!-- //리얼그리드 -->
+
+    <!-- HighChart -->
+    <div class="realgrid_container realgrid_container15 mt-40 mb-40" v-if="userMenuGrp !== 'VRGDW_TRAN' && userMenuGrp !== 'TRANSCUS'">
+      <div class="real_head">
+        <div class="real_head_left">
+          <span class="real_title">Chart영역</span>
+          <div class="btn_box"></div>
+        </div>
+        <!-- <div class="real_head_right">
+          <a class="btn_more" @click="pageMove('/order/booking-list')">+</a>
+        </div> -->
+      </div>
+      <div class="real_body real_body15"><chart></chart></div>
+    </div>
+
+    <div class="realgrid_container realgrid_container15 mt-40 mb-40" v-if="userMenuGrp !== 'VRGDW_TRAN' && userMenuGrp !== 'TRANSCUS'">
+      <div class="real_head">
+        <div class="real_head_left">
+          <span class="real_title">Chart영역</span>
+          <div class="btn_box"></div>
+        </div>
+        <!-- <div class="real_head_right">
+          <a class="btn_more" @click="pageMove('/order/booking-list')">+</a>
+        </div> -->
+      </div>
+      <div class="real_body real_body15"><chart2></chart2></div>
+    </div>
+    <!-- //HighChart -->
+
     <NoticeModal :page="page" />
   </div>
 </template>
@@ -219,6 +248,8 @@
 import { mapGetters } from 'vuex';
 import BookingMain from '@/components/gridView/main/BookingMain';
 import DeliveryMain from '@/components/gridView/main/DeliveryMain';
+import Chart from '@/components/chart/mainChart';
+import Chart2 from '@/components/chart/mainChart2';
 import utilApi from '@/api/util/utility';
 import NoticeModal from '@/modal/util/NoticeModal';
 import mainApi from '@/api/main';
@@ -239,6 +270,8 @@ export default {
     BookingMain,
     DeliveryMain,
     NoticeModal,
+    chart: Chart,
+    chart2: Chart2,
   },
   data() {
     return {
@@ -375,7 +408,7 @@ export default {
           resp = await mainApi.getVrgdwDelivery();
         }
         this.deliveryList = resp.data.ds;
-        console.log('배송현황', this.deliveryList);
+        console.log('배송현황:', this.deliveryList);
       } catch (e) {
         if (e && e.err && e.err.data && e.err.data.message) {
           this.$EventBus.$emit('openYesModal', e.err.data.message);

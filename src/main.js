@@ -19,6 +19,9 @@ import setDateFormat from '@/utils/dateUtil';
 
 import VueDOMPurifyHTML from 'vue-dompurify-html';
 
+import HighchartsVue from 'highcharts-vue';
+Vue.use(HighchartsVue);
+
 Vue.use(VueDOMPurifyHTML);
 
 Vue.component('VDatePicker', VDatePicker);

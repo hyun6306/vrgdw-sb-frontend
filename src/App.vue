@@ -71,6 +71,7 @@ export default {
       this.page = JSON.parse(JSON.stringify(page));
     },
     async getShortUrl() {
+      console.log('this.shortUrl:', this.shortUrl);
       try {
         const param = {
           shortUrl: this.shortUrl,

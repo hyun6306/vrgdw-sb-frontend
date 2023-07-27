@@ -50,6 +50,10 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+  console.log('step1:router.beforeEach');
+  console.log('shortUrl:', to.path);
+  console.log('getRefreshToken:', store.getters['userInfo/getRefreshToken']);
+
   if (to.path.includes('shortUrl')) {
     let shortUrl = to.path.split('/');
     store.commit('userInfo/setShortUrl', shortUrl[2]);

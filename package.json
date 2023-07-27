@@ -22,6 +22,8 @@
     "dayjs": "^1.11.3",
     "es6-promise": "^4.2.8",
     "he-tree-vue": "^2.0.10",
+    "highcharts": "^11.1.0",
+    "highcharts-vue": "^1.4.3",
     "lodash": "^4.17.21",
     "realgrid": "^2.6.1",
     "swiper": "^5.4.5",
